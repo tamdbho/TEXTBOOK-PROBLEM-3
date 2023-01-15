@@ -1,0 +1,21 @@
+import re
+
+dna = open('/Users/tamho/Desktop/PYTHON/python_for_biologists/exercises and examples/Chapter 7_regular_expressions/exercises/dna.txt').read().rstrip('\n')
+
+AbcI = re.findall(r'A.TAAT',dna)
+AbcII = re.findall (r'GC[AG][AT]TG', dna)
+
+enzymes_position = [0]
+for enzyme_1 in AbcI:
+    digest_enzyme = dna.find(enzyme_1) + 3
+    enzymes_position.append(digest_enzyme)
+for enzyme_2 in AbcII:
+    digest_enzyme_2 = dna.find(enzyme_2) + 4
+    enzymes_position.append(digest_enzyme_2)
+
+enzymes_position.append(len(dna))
+enzymes_position.sort()
+
+for i in range (1,len(enzymes_position),1):
+    fragments = enzymes_position [i] - enzymes_position [i-1]
+    print(fragments)
