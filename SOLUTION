@@ -1,6 +1,6 @@
 import re
 
-dna = open('/Users/tamho/Desktop/PYTHON/python_for_biologists/exercises and examples/Chapter 7_regular_expressions/exercises/dna.txt').read().rstrip('\n')
+dna = open('dna.txt').read().rstrip('\n')
 
 AbcI = re.findall(r'A.TAAT',dna)
 AbcII = re.findall (r'GC[AG][AT]TG', dna)
